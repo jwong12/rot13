@@ -1,31 +1,27 @@
 window.onload = function() {
+	let result;
 	let alphabets = "abcdefghijklmnopqrstuvwxyz";
-	let random = "aaa";
-	let result = "";
 	let button = document.getElementById('mybutton');
 	
-	// let test = "a";
-	// let test1 = "bcd";
-	// let text = test + test1;
-	
 	button.onclick = function() {
-		let text = document.getElementById('mytextarea').value;
-		// console.log(text);
-		rot13(text);
+		result = "";
+		rot13();
 	}
 	
+	function rot13() {
+		let inputText = document.getElementById('inputarea').value;
 
-	
-
-	function rot13(text) {
-		for (let i = 0; i < random.length; i++) {
-			if(alphabets.includes(text[i]) === true) {
-				let index = alphabets.indexOf(text[i]);
-				let letter = alphabets[index + 13];
+		for (let i = 0; i < inputText.length; i++) {
+			if(alphabets.includes(inputText[i]) === true) {
+				let index = alphabets.indexOf(inputText[i]);
+				let letter = alphabets[(index + 13) % 26];
 				result += letter;
-				// console.log(letter);
+
+			} else {
+				result += inputText[i];
 			}
 		}
-		console.log(result);
-	}
+		let outputText = document.getElementById('outputarea');
+		outputText.value = result;
+ 	}
 }
