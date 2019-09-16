@@ -7,10 +7,10 @@ div {
 }
 
 textarea {
-    height: 150px;
-    width: 400px;
+    height: 180px;
+    width: 500px;
 }
 
-button {
-    margin: 20px;
+select {
+    margin: 35px;
 }

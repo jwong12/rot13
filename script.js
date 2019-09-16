@@ -1,6 +1,7 @@
 window.onload = function() {
 	const MOD_26 = 26;
 	const alphabets = "abcdefghijklmnopqrstuvwxyz";
+	const alphabets_caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	const button = document.getElementById('convertButton');
 	const select = document.querySelector('select');
 
@@ -38,11 +39,15 @@ window.onload = function() {
 				let letter = alphabets[(index + rot) % MOD_26];
 				result += letter;
 
+			} else if(alphabets_caps.includes(inputText[i]) === true) {
+				let index = alphabets_caps.indexOf(inputText[i]);
+				let letter = alphabets_caps[(index + rot) % MOD_26];
+				result += letter;
+
 			} else {
 				result += inputText[i];
 			}
 		}
-
 		let outputText = document.getElementById('outputarea');
 		outputText.value = result;
  	}
